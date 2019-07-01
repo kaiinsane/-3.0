@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象构建</title>
+    <script>
+
+     var dog={};
+     dog.name="旺财";
+     dog.gender="male";
+     dog.age="100";
+     dog.bark = function(){
+        var voice="汪汪汪";
+        return voice;
+     }
+     dog.run = function(){
+        var speed="速度100km/h";
+        return speed;
+     }
+   document.write(dog.name+ dog.gender+dog.age+dog.bark()+dog.run());
+
+
+   var student = {
+  name : '狗蛋',
+  age : 12,
+  gender : '男',
+  sayName : function(){
+    console.log("学生姓名:"+student.name+"\n"+"年龄:"+student.age+"\n"+"性别:"+student.gender+"\n");
+  }
+}
+
+student.sayName();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

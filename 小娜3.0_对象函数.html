@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>小娜3.0_对象函数</title>
+
+    <script>
+       
+ function xiaona(){
+
+   this.ask = function () {
+      var a = prompt("你好，我是传智小娜，你的语音助手~~~~~~~\n" +
+                "输入《编号》或《关键词》选择功能，输入q退出聊天\n" +
+                " 1.计算《总和》\n" +
+                " 2.获取《时间》\n" +
+                " 3.讲个《笑话》\n");
+                return a;
+    }
+
+     //原本想写对象xiaona里的函数,后来发现在xiaona里的函数里不能生成xiaona的对象,
+     //无法使用xiaona的对象的函数,于是将+0的函数改为普通函数.
+       var datenum =function (a) {
+            if (a < 10) {
+                a = "0" + a;
+            }
+            return a;
+        }
+
+
+
+       this.gettime =function () {
+
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var hour = date.getHours();
+            var minute = date.getMinutes();
+            var second = date.getSeconds();
+            //  month = month < 10 ? '0' + month : month;
+            //  day = day < 10 ? '0' + day : day;
+            //  hour = hour < 10 ? '0' + hour : hour;
+            //  minute = minute < 10 ? '0' + minute : minute;
+            //  second = second < 10 ? '0' + second : second;
+             var time = year + datenum(month) +datenum(day)+datenum(hour)+datenum(minute)+datenum(second);
+            //  var time = year + "--" + month + "--" + day + "--" + hour + ":" + minute + ":" + second;
+           alert("时间为:"+time);
+
+        }
+
+       
+       this.getsum =function (){
+            var num = prompt("请输入一组数字,数字与数字之间用,分隔:");
+            var sum = num.split(",");
+            var total = 0;
+            for(var i=0; i<sum.length; i++){
+            total=total+parseInt(sum[i]);
+           }
+           alert("你输入的数字总和为:"+total);
+        }
+
+       this.get_joke =function (){
+                        var joke = ["笑话1", "笑话2", "笑话3", "笑话4", "笑话5", "笑话6"]
+                        var num1 = Math.random() * joke.length;
+                        num1 = Math.floor(num1);
+                        alert(joke[num1]);
+                        }
+
+
+      this.other = function(){
+                       alert('我听不懂');
+    }
+
+
+        }
+
+        var xiaona1 = new xiaona();
+
+        while (true) {
+
+            var a = xiaona1.ask();
+
+           if (a === "q") {
+                alert('你已经不爱小娜了吗？');
+                break;
+            }
+
+            switch (a) {
+                case "1":
+                case "总和":
+                    {
+                       
+                       xiaona1.getsum(xiaona1.getsum());
+                       break;
+                    }
+
+
+                case "2":
+                case "时间":
+                    {
+
+                        xiaona1.gettime();
+                        //    alert("时间为:"+year+"--"+datenum(month)+"--"+datenum(day)+"--"+datenum(hour)+":"+datenum(minute)+":"+datenum(second));
+                        break;
+                    }
+
+                case "3":
+                case "笑话":
+                    {
+                       xiaona1.get_joke();
+                        break;
+                    }
+
+                default:
+                    xiaona1.other();
+                    break;
+
+            }
+
+
+
+        }
+
+    </script>
+
+
+</head>
+
+<body>
+
+</body>
+
+</html>

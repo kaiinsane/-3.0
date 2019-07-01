@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>car</title>
+    <script>
+    
+    function car(brand, color, weight, price) {
+        this.brand=brand;
+        this.color=color;
+        this.weight=weight;
+        this.price=price;
+        this.starup =function(){
+           var starup_voice="轰轰轰";
+           return starup_voice;
+        }
+      this.flameout =function (){
+          var flameout_voice="死火了";
+          return flameout_voice;
+        }
+
+    }
+   
+    var car1 = new car("奥迪", "blue" ,"5吨" ,"100万");
+    console.log(car1);
+    console.log(car1.starup());
+    console.log(car1.flameout());
+    
+    //键值取数.
+    // document.write(car1['brand']+car1['color']+car1['weight']+car1['price']+car1.starup()+car1.flameout());
+
+    document.write(car1.brand+car1.color+car1.weight+car1.price+car1.starup()+car1.flameout());
+    // document.write(car1);
+
+    
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
